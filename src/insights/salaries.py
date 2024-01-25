@@ -23,7 +23,12 @@ class ProcessSalaries(ProcessJobs):
         return min_salary
 
     def matches_salary_range(self, job: Dict, salary: Union[int, str]) -> bool:
-        pass
+        if not isinstance(salary, int) and not salary.isdigit():
+            raise TypeError("salary must be an integer or a string of digits")
+        if job["min_salary"].isdigit() and job["max_salary"].isdigit():
+            if int(job["min_salary"]) <= int(salary) <= int(job["max_salary"]):
+                return True
+        return False
 
     def filter_by_salary_range(
         self, jobs: List[dict], salary: Union[str, int]
