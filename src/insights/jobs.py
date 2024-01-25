@@ -20,7 +20,7 @@ class ProcessJobs:
         return list(job_types)
 
     def filter_by_multiple_criteria(self, jobs, filter_criteria) -> List[dict]:
-        if not isinstance( filter_criteria, dict):
+        if not isinstance(filter_criteria, dict):
             raise TypeError("filter_criteria must be a dictionary")
         filtered_jobs = list()
         for job in jobs:
