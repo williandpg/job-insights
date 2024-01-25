@@ -27,7 +27,8 @@ class ProcessJobs:
         filtered_jobs = []
         for job in jobs:
             if all(
-                key in job and job[key] == value for key, value in filter_criteria.items()
+                key in job and job[key] == value for key,
+                value in filter_criteria.items()
             ):
                 filtered_jobs.append(job)
         return filtered_jobs
